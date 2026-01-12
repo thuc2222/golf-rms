@@ -1,0 +1,104 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* =========================
+   Base styles
+   ========================= */
+@layer base {
+    body {
+        @apply bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 font-sans antialiased;
+    }
+
+    html {
+        scroll-behavior: smooth;
+    }
+}
+
+/* =========================
+   Components
+   ========================= */
+@layer components {
+    .btn-primary {
+        @apply bg-primary-600 hover:bg-primary-700 text-white font-semibold py-2 px-4 rounded-lg transition-colors duration-200;
+    }
+
+    .btn-secondary {
+        @apply bg-gray-200 hover:bg-gray-300 dark:bg-gray-700 dark:hover:bg-gray-600 text-gray-800 dark:text-gray-200 font-semibold py-2 px-4 rounded-lg transition-colors duration-200;
+    }
+
+    .card {
+        @apply bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6;
+    }
+
+    .input {
+        @apply w-full rounded-md border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white shadow-sm focus:border-primary-500 focus:ring-primary-500;
+    }
+
+    .badge {
+        @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium;
+    }
+
+    .badge-success {
+        @apply bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200;
+    }
+
+    .badge-warning {
+        @apply bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-200;
+    }
+
+    .badge-danger {
+        @apply bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-200;
+    }
+
+    .badge-info {
+        @apply bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200;
+    }
+}
+
+/* =========================
+   Utilities
+   ========================= */
+@layer utilities {
+    .text-balance {
+        text-wrap: balance;
+    }
+
+    .animation-delay-200 {
+        animation-delay: 200ms;
+    }
+
+    .animation-delay-400 {
+        animation-delay: 400ms;
+    }
+
+    /* RTL support */
+    [dir="rtl"] {
+        direction: rtl;
+    }
+
+    [dir="rtl"] .ltr\:text-left {
+        text-align: right;
+    }
+
+    [dir="rtl"] .ltr\:text-right {
+        text-align: left;
+    }
+
+    /* Custom scrollbar */
+    ::-webkit-scrollbar {
+        width: 10px;
+    }
+
+    ::-webkit-scrollbar-track {
+        @apply bg-gray-100 dark:bg-gray-900;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        @apply bg-gray-300 dark:bg-gray-700 rounded-full;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+        @apply bg-gray-400 dark:bg-gray-600;
+    }
+}
