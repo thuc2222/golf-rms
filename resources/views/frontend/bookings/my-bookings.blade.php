@@ -15,7 +15,7 @@
     @if($bookings->count() > 0)
         <div class="space-y-6">
             @foreach($bookings as $booking)
-                <div class="bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden">
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden">
                     <div class="md:flex">
                         <div class="md:flex-shrink-0">
                             <img 
@@ -27,13 +27,13 @@
                         <div class="p-6 flex-1">
                             <div class="flex items-start justify-between mb-4">
                                 <div>
-                                    <div class="text-sm text-gray-500 dark:text-gray-400 mb-1">
+                                    <div class="text-sm text-gray-500 mb-1">
                                         Booking #{{ $booking->booking_number }}
                                     </div>
-                                    <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-2">
+                                    <h3 class="text-2xl font-bold text-gray-900 mb-2">
                                         {{ $booking->golfCourse->name }}
                                     </h3>
-                                    <div class="flex items-center text-gray-600 dark:text-gray-400">
+                                    <div class="flex items-center text-gray-600">
                                         <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
                                         </svg>
@@ -41,10 +41,10 @@
                                     </div>
                                 </div>
                                 <span class="px-3 py-1 rounded-full text-sm font-semibold
-                                    @if($booking->status === 'confirmed') bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200
-                                    @elseif($booking->status === 'pending') bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-200
-                                    @elseif($booking->status === 'cancelled') bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-200
-                                    @else bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200
+                                    @if($booking->status === 'confirmed') bg-green-100 text-green-800
+                                    @elseif($booking->status === 'pending') bg-yellow-100 text-yellow-800
+                                    @elseif($booking->status === 'cancelled') bg-red-100 text-red-800
+                                    @else bg-blue-100 text-blue-800
                                     @endif">
                                     {{ ucfirst($booking->status) }}
                                 </span>
@@ -52,15 +52,15 @@
 
                             <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-4">
                                 <div>
-                                    <div class="text-sm text-gray-500 dark:text-gray-400">Players</div>
-                                    <div class="text-lg font-semibold text-gray-900 dark:text-white">{{ $booking->players_count }}</div>
+                                    <div class="text-sm text-gray-500">Players</div>
+                                    <div class="text-lg font-semibold text-gray-900">{{ $booking->players_count }}</div>
                                 </div>
                                 <div>
-                                    <div class="text-sm text-gray-500 dark:text-gray-400">Total</div>
-                                    <div class="text-lg font-semibold text-gray-900 dark:text-white">${{ number_format($booking->total, 2) }}</div>
+                                    <div class="text-sm text-gray-500">Total</div>
+                                    <div class="text-lg font-semibold text-gray-900">${{ number_format($booking->total, 2) }}</div>
                                 </div>
                                 <div>
-                                    <div class="text-sm text-gray-500 dark:text-gray-400">Payment</div>
+                                    <div class="text-sm text-gray-500">Payment</div>
                                     <div class="text-lg font-semibold
                                         @if($booking->payment_status === 'paid') text-green-600
                                         @elseif($booking->payment_status === 'pending') text-yellow-600
@@ -70,8 +70,8 @@
                                     </div>
                                 </div>
                                 <div>
-                                    <div class="text-sm text-gray-500 dark:text-gray-400">Booked</div>
-                                    <div class="text-sm font-semibold text-gray-900 dark:text-white">{{ $booking->created_at->diffForHumans() }}</div>
+                                    <div class="text-sm text-gray-500">Booked</div>
+                                    <div class="text-sm font-semibold text-gray-900">{{ $booking->created_at->diffForHumans() }}</div>
                                 </div>
                             </div>
 
@@ -99,12 +99,12 @@
             {{ $bookings->links() }}
         </div>
     @else
-        <div class="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-12 text-center">
+        <div class="bg-white rounded-lg shadow-lg p-12 text-center">
             <svg class="w-24 h-24 text-gray-400 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
             </svg>
-            <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-2">No Bookings Yet</h3>
-            <p class="text-gray-600 dark:text-gray-400 mb-6">Start exploring our golf courses and book your first tee time!</p>
+            <h3 class="text-2xl font-bold text-gray-900 mb-2">No Bookings Yet</h3>
+            <p class="text-gray-600 mb-6">Start exploring our golf courses and book your first tee time!</p>
             <a href="{{ route('courses.index') }}" class="inline-block bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-8 rounded-lg transition-colors">
                 Browse Golf Courses
             </a>

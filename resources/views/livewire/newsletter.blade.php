@@ -1,7 +1,7 @@
 {{-- resources/views/livewire/newsletter.blade.php --}}
 <div>
     @if($subscribed)
-        <div class="bg-green-50 dark:bg-green-900 border border-green-200 dark:border-green-700 text-green-700 dark:text-green-200 px-4 py-3 rounded-lg text-sm">
+        <div class="bg-green-50 border border-green-200 text-green-700 px-4 py-3 rounded-lg text-sm">
             Thanks for subscribing!
         </div>
     @else

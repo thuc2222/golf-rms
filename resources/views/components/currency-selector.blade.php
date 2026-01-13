@@ -10,7 +10,7 @@
     <button 
         @click="open = !open"
         type="button"
-        class="inline-flex items-center gap-2 px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm text-sm font-medium text-gray-700 dark:text-gray-200 bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500"
+        class="inline-flex items-center gap-2 px-4 py-2 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500"
     >
         <span x-text="currencies.find(c => c.code === selected)?.symbol"></span>
         <span x-text="selected.toUpperCase()"></span>
@@ -23,14 +23,14 @@
         x-show="open"
         @click.away="open = false"
         x-transition
-        class="absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white dark:bg-gray-800 ring-1 ring-black ring-opacity-5 z-50"
+        class="absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 z-50"
     >
         <div class="py-1">
             <template x-for="currency in currencies" :key="currency.code">
                 <button
                     @click="selected = currency.code; open = false; $dispatch('currency-changed', { currency: currency.code })"
-                    class="w-full text-left px-4 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 flex items-center justify-between"
-                    :class="{ 'bg-primary-50 dark:bg-primary-900': selected === currency.code }"
+                    class="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 flex items-center justify-between"
+                    :class="{ 'bg-primary-50': selected === currency.code }"
                 >
                     <span class="flex items-center gap-2">
                         <span x-text="currency.symbol"></span>

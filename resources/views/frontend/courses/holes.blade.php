@@ -29,7 +29,7 @@
     <!-- Holes Grid -->
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         @foreach($course->holes as $hole)
-            <div class="bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden">
+            <div class="bg-white rounded-lg shadow-lg overflow-hidden">
                 @if($hole->image)
                     <img 
                         src="{{ Storage::url($hole->image) }}" 
@@ -44,37 +44,37 @@
 
                 <div class="p-6">
                     <div class="flex items-center justify-between mb-3">
-                        <h3 class="text-2xl font-bold text-gray-900 dark:text-white">
+                        <h3 class="text-2xl font-bold text-gray-900">
                             Hole {{ $hole->hole_number }}
                         </h3>
-                        <span class="bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 px-3 py-1 rounded-full font-bold">
+                        <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full font-bold">
                             Par {{ $hole->par }}
                         </span>
                     </div>
 
                     @if($hole->name)
-                        <p class="text-gray-600 dark:text-gray-400 font-medium mb-3">{{ $hole->name }}</p>
+                        <p class="text-gray-600 font-medium mb-3">{{ $hole->name }}</p>
                     @endif
 
                     <!-- Yardage -->
                     @if($hole->yardage)
                         <div class="grid grid-cols-3 gap-2 mb-4">
                             @if(isset($hole->yardage['championship']))
-                                <div class="text-center bg-gray-50 dark:bg-gray-900 p-2 rounded">
-                                    <div class="text-xs text-gray-500 dark:text-gray-400">Championship</div>
-                                    <div class="text-lg font-bold text-gray-900 dark:text-white">{{ $hole->yardage['championship'] }}</div>
+                                <div class="text-center bg-gray-50 p-2 rounded">
+                                    <div class="text-xs text-gray-500">Championship</div>
+                                    <div class="text-lg font-bold text-gray-900">{{ $hole->yardage['championship'] }}</div>
                                 </div>
                             @endif
                             @if(isset($hole->yardage['regular']))
-                                <div class="text-center bg-gray-50 dark:bg-gray-900 p-2 rounded">
-                                    <div class="text-xs text-gray-500 dark:text-gray-400">Regular</div>
-                                    <div class="text-lg font-bold text-gray-900 dark:text-white">{{ $hole->yardage['regular'] }}</div>
+                                <div class="text-center bg-gray-50 p-2 rounded">
+                                    <div class="text-xs text-gray-500">Regular</div>
+                                    <div class="text-lg font-bold text-gray-900">{{ $hole->yardage['regular'] }}</div>
                                 </div>
                             @endif
                             @if(isset($hole->yardage['forward']))
-                                <div class="text-center bg-gray-50 dark:bg-gray-900 p-2 rounded">
-                                    <div class="text-xs text-gray-500 dark:text-gray-400">Forward</div>
-                                    <div class="text-lg font-bold text-gray-900 dark:text-white">{{ $hole->yardage['forward'] }}</div>
+                                <div class="text-center bg-gray-50 p-2 rounded">
+                                    <div class="text-xs text-gray-500">Forward</div>
+                                    <div class="text-lg font-bold text-gray-900">{{ $hole->yardage['forward'] }}</div>
                                 </div>
                             @endif
                         </div>
@@ -82,14 +82,14 @@
 
                     <!-- Description -->
                     @if($hole->description)
-                        <p class="text-gray-700 dark:text-gray-300 text-sm mb-3">{{ $hole->description }}</p>
+                        <p class="text-gray-700 text-sm mb-3">{{ $hole->description }}</p>
                     @endif
 
                     <!-- Hazards -->
                     @if($hole->hazards && count($hole->hazards) > 0)
                         <div class="flex flex-wrap gap-2 mb-3">
                             @foreach($hole->hazards as $hazard)
-                                <span class="bg-yellow-100 dark:bg-yellow-900 text-yellow-800 dark:text-yellow-200 px-2 py-1 rounded text-xs font-semibold">
+                                <span class="bg-yellow-100 text-yellow-800 px-2 py-1 rounded text-xs font-semibold">
                                     {{ ucwords(str_replace('_', ' ', $hazard)) }}
                                 </span>
                             @endforeach
@@ -98,12 +98,12 @@
 
                     <!-- Tips -->
                     @if($hole->tips)
-                        <div class="bg-blue-50 dark:bg-blue-900 border-l-4 border-blue-500 p-3 rounded">
+                        <div class="bg-blue-50 border-l-4 border-blue-500 p-3 rounded">
                             <div class="flex items-start">
                                 <svg class="w-5 h-5 text-blue-500 mr-2 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                                 </svg>
-                                <p class="text-sm text-blue-800 dark:text-blue-200">{{ $hole->tips }}</p>
+                                <p class="text-sm text-blue-800">{{ $hole->tips }}</p>
                             </div>
                         </div>
                     @endif

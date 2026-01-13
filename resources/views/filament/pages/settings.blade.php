@@ -20,23 +20,23 @@
             
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                 @forelse($modules as $module)
-                    <div class="bg-white dark:bg-gray-800 rounded-lg shadow p-6">
+                    <div class="bg-white rounded-lg shadow p-6">
                         <div class="flex justify-between items-start mb-4">
                             <div>
                                 <h3 class="text-lg font-semibold">{{ $module['name'] }}</h3>
-                                <p class="text-sm text-gray-500 dark:text-gray-400">
+                                <p class="text-sm text-gray-500">
                                     Version {{ $module['version'] }}
                                 </p>
                             </div>
                             
                             @if($module['is_core'])
-                                <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200">
+                                <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800">
                                     Core
                                 </span>
                             @else
                                 <button 
                                     wire:click="toggleModule({{ $module['id'] }})"
-                                    class="relative inline-flex h-6 w-11 items-center rounded-full transition-colors focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 {{ $module['is_active'] ? 'bg-primary-600' : 'bg-gray-200 dark:bg-gray-700' }}"
+                                    class="relative inline-flex h-6 w-11 items-center rounded-full transition-colors focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 {{ $module['is_active'] ? 'bg-primary-600' : 'bg-gray-200' }}"
                                 >
                                     <span class="sr-only">Toggle module</span>
                                     <span class="{{ $module['is_active'] ? 'translate-x-6' : 'translate-x-1' }} inline-block h-4 w-4 transform rounded-full bg-white transition-transform"></span>
@@ -45,13 +45,13 @@
                         </div>
 
                         @if($module['description'])
-                            <p class="text-sm text-gray-600 dark:text-gray-300 mb-4">
+                            <p class="text-sm text-gray-600 mb-4">
                                 {{ $module['description'] }}
                             </p>
                         @endif
 
                         <div class="flex items-center justify-between">
-                            <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium {{ $module['is_active'] ? 'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200' : 'bg-gray-100 text-gray-800 dark:bg-gray-900 dark:text-gray-200' }}">
+                            <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium {{ $module['is_active'] ? 'bg-green-100 text-green-800' : 'bg-gray-100 text-gray-800' }}">
                                 {{ $module['is_active'] ? 'Active' : 'Inactive' }}
                             </span>
 
@@ -59,7 +59,7 @@
                                 <button 
                                     wire:click="uninstallModule({{ $module['id'] }})"
                                     wire:confirm="Are you sure you want to uninstall this module?"
-                                    class="text-sm text-red-600 hover:text-red-800 dark:text-red-400 dark:hover:text-red-300"
+                                    class="text-sm text-red-600 hover:text-red-800"
                                 >
                                     Uninstall
                                 </button>
@@ -81,10 +81,10 @@
                 
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                     @foreach($availableModules as $module)
-                        <div class="bg-white dark:bg-gray-800 rounded-lg shadow p-6">
+                        <div class="bg-white rounded-lg shadow p-6">
                             <div class="mb-4">
                                 <h3 class="text-lg font-semibold">{{ $module['name'] }}</h3>
-                                <p class="text-sm text-gray-500 dark:text-gray-400">
+                                <p class="text-sm text-gray-500">
                                     Version {{ $module['version'] }}
                                 </p>
                             </div>

@@ -1,5 +1,5 @@
 <?php
-
+// database/seeders/SubscriptionPlanSeeder.php (Updated version)
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
@@ -70,5 +70,7 @@ class SubscriptionPlanSeeder extends Seeder
         foreach ($plans as $plan) {
             SubscriptionPlan::create($plan);
         }
+
+        $this->command->info('✓ Created ' . count($plans) . ' subscription plans');
     }
 }

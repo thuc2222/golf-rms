@@ -33,12 +33,12 @@
     <div 
         x-show="showHoleInfo && selectedHole"
         x-transition
-        class="mt-6 bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6"
+        class="mt-6 bg-white rounded-lg shadow-lg p-6"
     >
         <div class="flex justify-between items-start mb-4">
             <div>
                 <h3 class="text-2xl font-bold" x-text="`Hole ${selectedHole?.hole_number}`"></h3>
-                <p class="text-gray-600 dark:text-gray-400" x-text="selectedHole?.name"></p>
+                <p class="text-gray-600" x-text="selectedHole?.name"></p>
             </div>
             <button 
                 @click="showHoleInfo = false"
@@ -52,33 +52,33 @@
 
         <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-4">
             <div>
-                <p class="text-sm text-gray-500 dark:text-gray-400">Par</p>
+                <p class="text-sm text-gray-500">Par</p>
                 <p class="text-xl font-bold" x-text="selectedHole?.par"></p>
             </div>
             <div>
-                <p class="text-sm text-gray-500 dark:text-gray-400">Championship</p>
+                <p class="text-sm text-gray-500">Championship</p>
                 <p class="text-xl font-bold" x-text="`${selectedHole?.yardage?.championship} yds`"></p>
             </div>
             <div>
-                <p class="text-sm text-gray-500 dark:text-gray-400">Regular</p>
+                <p class="text-sm text-gray-500">Regular</p>
                 <p class="text-xl font-bold" x-text="`${selectedHole?.yardage?.regular} yds`"></p>
             </div>
             <div>
-                <p class="text-sm text-gray-500 dark:text-gray-400">Handicap</p>
+                <p class="text-sm text-gray-500">Handicap</p>
                 <p class="text-xl font-bold" x-text="selectedHole?.handicap"></p>
             </div>
         </div>
 
         <div x-show="selectedHole?.description" class="mb-4">
             <h4 class="font-semibold mb-2">Description</h4>
-            <p class="text-gray-600 dark:text-gray-300" x-text="selectedHole?.description"></p>
+            <p class="text-gray-600" x-text="selectedHole?.description"></p>
         </div>
 
         <div x-show="selectedHole?.hazards?.length > 0" class="mb-4">
             <h4 class="font-semibold mb-2">Hazards</h4>
             <div class="flex flex-wrap gap-2">
                 <template x-for="hazard in selectedHole?.hazards" :key="hazard">
-                    <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-200">
+                    <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-yellow-100 text-yellow-800">
                         <span x-text="hazard.replace('_', ' ')"></span>
                     </span>
                 </template>
@@ -87,7 +87,7 @@
 
         <div x-show="selectedHole?.tips">
             <h4 class="font-semibold mb-2">Playing Tips</h4>
-            <p class="text-gray-600 dark:text-gray-300" x-text="selectedHole?.tips"></p>
+            <p class="text-gray-600" x-text="selectedHole?.tips"></p>
         </div>
 
         <div x-show="selectedHole?.image" class="mt-4">

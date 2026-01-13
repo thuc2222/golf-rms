@@ -46,40 +46,40 @@
         <!-- Main Content -->
         <div class="lg:col-span-2 space-y-8">
             <!-- Quick Overview -->
-            <div class="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6">
+            <div class="bg-white rounded-lg shadow-lg p-6">
                 <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
                     <div class="text-center">
                         <div class="text-3xl font-bold text-blue-600">{{ $tour->duration_days }}</div>
-                        <div class="text-sm text-gray-600 dark:text-gray-400">Days</div>
+                        <div class="text-sm text-gray-600">Days</div>
                     </div>
                     <div class="text-center">
                         <div class="text-3xl font-bold text-blue-600">{{ $tour->duration_nights }}</div>
-                        <div class="text-sm text-gray-600 dark:text-gray-400">Nights</div>
+                        <div class="text-sm text-gray-600">Nights</div>
                     </div>
                     <div class="text-center">
                         <div class="text-3xl font-bold text-blue-600">{{ $tour->rounds_of_golf }}</div>
-                        <div class="text-sm text-gray-600 dark:text-gray-400">Rounds</div>
+                        <div class="text-sm text-gray-600">Rounds</div>
                     </div>
                     <div class="text-center">
                         <div class="text-3xl font-bold text-blue-600">{{ $tour->min_participants }}-{{ $tour->max_participants }}</div>
-                        <div class="text-sm text-gray-600 dark:text-gray-400">Group Size</div>
+                        <div class="text-sm text-gray-600">Group Size</div>
                     </div>
                 </div>
             </div>
 
             <!-- Description -->
-            <div class="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6">
-                <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">Tour Overview</h2>
-                <div class="prose dark:prose-invert max-w-none text-gray-700 dark:text-gray-300">
+            <div class="bg-white rounded-lg shadow-lg p-6">
+                <h2 class="text-2xl font-bold text-gray-900 mb-4">Tour Overview</h2>
+                <div class="prose max-w-none text-gray-700">
                     {{ $tour->description }}
                 </div>
             </div>
 
             <!-- Detailed Itinerary -->
             @if($tour->itinerary)
-                <div class="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6">
-                    <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">Detailed Itinerary</h2>
-                    <div class="prose dark:prose-invert max-w-none text-gray-700 dark:text-gray-300">
+                <div class="bg-white rounded-lg shadow-lg p-6">
+                    <h2 class="text-2xl font-bold text-gray-900 mb-4">Detailed Itinerary</h2>
+                    <div class="prose max-w-none text-gray-700">
                         {!! nl2br(e($tour->itinerary)) !!}
                     </div>
                 </div>
@@ -87,15 +87,15 @@
 
             <!-- Inclusions -->
             @if($tour->inclusions && count($tour->inclusions) > 0)
-                <div class="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6">
-                    <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">What's Included</h2>
+                <div class="bg-white rounded-lg shadow-lg p-6">
+                    <h2 class="text-2xl font-bold text-gray-900 mb-4">What's Included</h2>
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
                         @foreach($tour->inclusions as $inclusion)
                             <div class="flex items-start">
                                 <svg class="w-6 h-6 text-green-600 mr-3 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                                 </svg>
-                                <span class="text-gray-700 dark:text-gray-300">{{ $inclusion }}</span>
+                                <span class="text-gray-700">{{ $inclusion }}</span>
                             </div>
                         @endforeach
                     </div>
@@ -104,15 +104,15 @@
 
             <!-- Exclusions -->
             @if($tour->exclusions && count($tour->exclusions) > 0)
-                <div class="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6">
-                    <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">What's Not Included</h2>
+                <div class="bg-white rounded-lg shadow-lg p-6">
+                    <h2 class="text-2xl font-bold text-gray-900 mb-4">What's Not Included</h2>
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
                         @foreach($tour->exclusions as $exclusion)
                             <div class="flex items-start">
                                 <svg class="w-6 h-6 text-red-600 mr-3 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
                                 </svg>
-                                <span class="text-gray-700 dark:text-gray-300">{{ $exclusion }}</span>
+                                <span class="text-gray-700">{{ $exclusion }}</span>
                             </div>
                         @endforeach
                     </div>
@@ -121,8 +121,8 @@
 
             <!-- Gallery -->
             @if($tour->gallery && count($tour->gallery) > 0)
-                <div class="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6">
-                    <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">Tour Gallery</h2>
+                <div class="bg-white rounded-lg shadow-lg p-6">
+                    <h2 class="text-2xl font-bold text-gray-900 mb-4">Tour Gallery</h2>
                     <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
                         @foreach($tour->gallery as $image)
                             <img 
@@ -136,14 +136,14 @@
             @endif
 
             <!-- Important Information -->
-            <div class="bg-yellow-50 dark:bg-yellow-900 border-l-4 border-yellow-500 rounded-lg p-6">
-                <h3 class="text-lg font-bold text-yellow-900 dark:text-yellow-100 mb-3 flex items-center">
+            <div class="bg-yellow-50 border-l-4 border-yellow-500 rounded-lg p-6">
+                <h3 class="text-lg font-bold text-yellow-900 mb-3 flex items-center">
                     <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                     </svg>
                     Important Information
                 </h3>
-                <ul class="text-yellow-800 dark:text-yellow-200 space-y-2 text-sm">
+                <ul class="text-yellow-800 space-y-2 text-sm">
                     <li>• Minimum {{ $tour->min_participants }} participants required for tour to proceed</li>
                     <li>• Difficulty level: {{ ucfirst($tour->difficulty_level) }}</li>
                     <li>• Cancellation policy: Free cancellation up to 14 days before departure</li>
@@ -157,12 +157,12 @@
 
         <!-- Sidebar -->
         <div class="lg:col-span-1">
-            <div class="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6 sticky top-20">
+            <div class="bg-white rounded-lg shadow-lg p-6 sticky top-20">
                 <!-- Pricing -->
                 <div class="mb-6">
-                    <div class="text-sm text-gray-600 dark:text-gray-400 mb-1">Starting from</div>
+                    <div class="text-sm text-gray-600 mb-1">Starting from</div>
                     <div class="text-4xl font-bold text-blue-600 mb-1">${{ number_format($tour->price_from, 0) }}</div>
-                    <div class="text-sm text-gray-600 dark:text-gray-400">per person</div>
+                    <div class="text-sm text-gray-600">per person</div>
                 </div>
 
                 <!-- Book Button -->
@@ -170,39 +170,39 @@
                     Request Booking
                 </button>
 
-                <div class="text-center text-sm text-gray-600 dark:text-gray-400 mb-6">
+                <div class="text-center text-sm text-gray-600 mb-6">
                     Or call us at (123) 456-7890
                 </div>
 
                 <!-- Tour Details -->
-                <div class="border-t border-gray-200 dark:border-gray-700 pt-4 space-y-3">
+                <div class="border-t border-gray-200 pt-4 space-y-3">
                     <div class="flex justify-between text-sm">
-                        <span class="text-gray-600 dark:text-gray-400">Duration</span>
-                        <span class="font-semibold text-gray-900 dark:text-white">{{ $tour->duration_days }}D/{{ $tour->duration_nights }}N</span>
+                        <span class="text-gray-600">Duration</span>
+                        <span class="font-semibold text-gray-900">{{ $tour->duration_days }}D/{{ $tour->duration_nights }}N</span>
                     </div>
                     <div class="flex justify-between text-sm">
-                        <span class="text-gray-600 dark:text-gray-400">Golf Rounds</span>
-                        <span class="font-semibold text-gray-900 dark:text-white">{{ $tour->rounds_of_golf }}</span>
+                        <span class="text-gray-600">Golf Rounds</span>
+                        <span class="font-semibold text-gray-900">{{ $tour->rounds_of_golf }}</span>
                     </div>
                     <div class="flex justify-between text-sm">
-                        <span class="text-gray-600 dark:text-gray-400">Difficulty</span>
-                        <span class="font-semibold text-gray-900 dark:text-white">{{ ucfirst($tour->difficulty_level) }}</span>
+                        <span class="text-gray-600">Difficulty</span>
+                        <span class="font-semibold text-gray-900">{{ ucfirst($tour->difficulty_level) }}</span>
                     </div>
                     <div class="flex justify-between text-sm">
-                        <span class="text-gray-600 dark:text-gray-400">Group Size</span>
-                        <span class="font-semibold text-gray-900 dark:text-white">{{ $tour->min_participants }}-{{ $tour->max_participants }}</span>
+                        <span class="text-gray-600">Group Size</span>
+                        <span class="font-semibold text-gray-900">{{ $tour->min_participants }}-{{ $tour->max_participants }}</span>
                     </div>
                 </div>
 
                 <!-- Vendor Info -->
-                <div class="border-t border-gray-200 dark:border-gray-700 pt-4 mt-4">
-                    <h4 class="font-semibold text-gray-900 dark:text-white mb-3">Tour Operator</h4>
+                <div class="border-t border-gray-200 pt-4 mt-4">
+                    <h4 class="font-semibold text-gray-900 mb-3">Tour Operator</h4>
                     <div class="flex items-center">
                         @if($tour->vendor->logo)
                             <img src="{{ Storage::url($tour->vendor->logo) }}" alt="{{ $tour->vendor->business_name }}" class="w-12 h-12 rounded-full mr-3">
                         @endif
                         <div>
-                            <div class="font-semibold text-gray-900 dark:text-white">{{ $tour->vendor->business_name }}</div>
+                            <div class="font-semibold text-gray-900">{{ $tour->vendor->business_name }}</div>
                             <a href="{{ route('vendors.show', $tour->vendor->slug) }}" class="text-sm text-blue-600 hover:text-blue-700">
                                 View Profile →
                             </a>
@@ -211,9 +211,9 @@
                 </div>
 
                 <!-- Why Book With Us -->
-                <div class="border-t border-gray-200 dark:border-gray-700 pt-4 mt-4">
-                    <h4 class="font-semibold text-gray-900 dark:text-white mb-3">Why Book With Us</h4>
-                    <ul class="space-y-2 text-sm text-gray-700 dark:text-gray-300">
+                <div class="border-t border-gray-200 pt-4 mt-4">
+                    <h4 class="font-semibold text-gray-900 mb-3">Why Book With Us</h4>
+                    <ul class="space-y-2 text-sm text-gray-700">
                         <li class="flex items-start">
                             <svg class="w-5 h-5 text-green-600 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
@@ -244,11 +244,11 @@
 
             <!-- Related Tours -->
             @if($relatedTours->count() > 0)
-                <div class="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6 mt-6">
-                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-4">Similar Tours</h3>
+                <div class="bg-white rounded-lg shadow-lg p-6 mt-6">
+                    <h3 class="text-xl font-bold text-gray-900 mb-4">Similar Tours</h3>
                     <div class="space-y-4">
                         @foreach($relatedTours as $related)
-                            <div class="border-b border-gray-200 dark:border-gray-700 pb-4 last:border-0 last:pb-0">
+                            <div class="border-b border-gray-200 pb-4 last:border-0 last:pb-0">
                                 <a href="{{ route('tours.show', $related->slug) }}">
                                     @if($related->featured_image)
                                         <img 
@@ -257,8 +257,8 @@
                                             class="w-full h-32 object-cover rounded-lg mb-3"
                                         >
                                     @endif
-                                    <h4 class="font-semibold text-gray-900 dark:text-white text-sm mb-2 hover:text-blue-600">{{ $related->name }}</h4>
-                                    <div class="flex items-center justify-between text-xs text-gray-600 dark:text-gray-400">
+                                    <h4 class="font-semibold text-gray-900 text-sm mb-2 hover:text-blue-600">{{ $related->name }}</h4>
+                                    <div class="flex items-center justify-between text-xs text-gray-600">
                                         <span>{{ $related->duration_days }}D/{{ $related->duration_nights }}N</span>
                                         <span class="font-bold text-blue-600">${{ number_format($related->price_from, 0) }}</span>
                                     </div>

@@ -13,6 +13,7 @@ class DatabaseSeeder extends Seeder
             CurrencySeeder::class,
             ModuleSeeder::class,
             SubscriptionPlanSeeder::class,
+            DemoDataSeeder::class,
         ]);
     }
 }
